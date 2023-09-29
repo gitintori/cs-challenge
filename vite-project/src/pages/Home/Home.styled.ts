@@ -27,7 +27,9 @@ export const SearchButton = styled.button`
 `;
 
 export const ResultsList = styled.ul`
-padding: 30px;
+  padding: 30px;
 `;
 
-export const Results = styled.li``;
+export const Result = styled.li`
+
+`;

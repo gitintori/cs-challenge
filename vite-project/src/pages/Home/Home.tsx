@@ -1,6 +1,9 @@
-import { Container, SearchButton, SearchBar, SearchWrapper, ResultsList, Results } from './Home.styled'
+import { Container, SearchButton, SearchBar, SearchWrapper, ResultsList, Result } from './Home.styled'
+import React from "react"
 
 function Home() {
+
+    const [users, setUsers] = React.useState(["Carol", "Lele", "Gi"])
   
 
   return (
@@ -12,7 +15,13 @@ function Home() {
         </SearchButton>
       </SearchWrapper>
       <ResultsList>
-        <Results>oi</Results>
+            {
+                users.map((user, index) => (
+                    <Result key={index}>
+                    {user}
+                    </Result>
+                ))
+            }
       </ResultsList>
     </Container>
   )
