@@ -1,22 +1,17 @@
 import React from "react"
-import GlobalStyle from './config/GlobalStyle'
-import { Container, SearchWrapper, SearchBar, SearchButton, ResultsList, Result } from './App.styled'
+import {Container } from './App.styled'
+import GlobalStyle from "./config/GlobalStyle"
+import Home from "./pages/Home/Home"
+
 function App() {
+  
 
-    return (
-        <Container>
-            <SearchWrapper/>
-                <SearchBar type="text" placeholder="Pesquisar"/>
-                <SearchButton type="submit"/>
-            <SearchWrapper/>
-
-            <ResultsList>
-                <Result>
-                    hello world
-                </Result>
-            </ResultsList>
-        </Container>
-    )
+  return (
+    <Container>
+      <GlobalStyle />
+      <Home />
+    </Container>
+  )
 }
 
 export default App
