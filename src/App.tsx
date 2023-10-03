@@ -1,13 +1,13 @@
 import {Container } from './App.styled'
 import GlobalStyle from "./config/GlobalStyle"
-import Home from "./pages/Home/Home"
+import Router from "./router/Router"
 
 function App() {
     
   return (
     <Container>
       <GlobalStyle />
-      <Home />
+      <Router />
     </Container>
   )
 }
