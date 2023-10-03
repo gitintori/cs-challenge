@@ -1,21 +1,22 @@
 import { useParams, Link } from "react-router-dom"
 import React from 'react'
 
+const url = 'https://api.github.com/';
+
 const User = () => {
-    const url = 'https://api.github.com/';
 
-    const getUsers = async () => {
-        const resposta = await fetch(`${url}users/{username}`, {
-        method: 'GET'
-        });
-
-    const dados = await resposta.json()
+    const {id} = useParams()
 
     React.useEffect(() => {
+        const getUsers = async () => {
+            const resposta = await fetch(`${url}users/${id}`)
+            const dados = await resposta.json()
+            console.log(dados)
+        }
 
-    })
-}
-    const {id} = useParams()
+    getUsers()
+    }, [])
+
     return (
         <div>
             {id}
