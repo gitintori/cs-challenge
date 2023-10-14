@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom"
 import React from 'react'
+import {Avatar, Results} from './User.styled'
 
 const url = 'https://api.github.com/';
 
@@ -21,23 +22,25 @@ const User = () => {
             console.log(dados)
             setUserData(dados)
         }
-
     getUsers()
     }, [id])
 
+
     return (
-        <div>
-            <img src={userData.avatar_url} alt="Avatar" />
-            <p>Usuário: {id}</p>
-            <p>Seguidores: {userData.followers}</p>
-            <p>Seguindo: {userData.following}</p>
-            <p>Email: {userData.email}</p>
-            <p>Bio: {userData.bio}</p>
+        <Results>
             <Link to='/'>
-                home
+                Voltar
             </Link>
-            <p></p>
-        </div>
+            <Avatar src={userData.avatar_url} />
+            <p>User: {id}</p>
+            <p>Followers: {userData.followers}</p>
+            <p>Following: {userData.following}</p>
+            <p>E-mail: {userData.email}</p>
+            <p>Bio: {userData.bio}</p>
+            <Link to={`/users/${id}/repos`}>
+                <p>Lista de Repositórios</p>
+            </Link>
+        </Results>
         
     )
 }

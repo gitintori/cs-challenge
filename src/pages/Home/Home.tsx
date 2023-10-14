@@ -1,4 +1,4 @@
-import { Container, SearchButton, SearchBar, SearchWrapper } from './Home.styled'
+import { Container, SearchButton, SearchField, SearchWrapper } from './Home.styled'
 import React from "react"
 
 const Home = (): JSX.Element => {
@@ -8,7 +8,7 @@ const Home = (): JSX.Element => {
   return (
     <Container>
       <SearchWrapper>
-        <SearchBar 
+        <SearchField 
           type="text" 
           placeholder="Pesquisar" 
           value={searchTerm} 
