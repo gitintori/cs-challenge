@@ -1,6 +1,5 @@
 import { useParams, Link } from "react-router-dom"
 import React from 'react'
-import { any } from "cypress/types/bluebird";
 
 const url = 'https://api.github.com/';
 
