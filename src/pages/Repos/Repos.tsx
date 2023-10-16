@@ -13,8 +13,13 @@ const Repos = () => {
       const resposta = await fetch(`${url}users/${id}/repos`);
       console.log(resposta)
       const dados = await resposta.json();
+
+      dados.sort((a: { stargazers_count: number }, b: { stargazers_count: number }) => b.stargazers_count - a.stargazers_count);
+
+
       setRepos(dados);
       console.log(dados)
+      
     }
 
     getRepos();
@@ -27,7 +32,7 @@ const Repos = () => {
             </Link>
         <ul>
             {repos.map((repo: any) => (
-                    <li key={repo.id}>{repo.name}</li>
+                    <li key={repo.id}>{repo.name} - Estrelas: {repo.stargazers_count}</li>
                 ))}
         </ul>
     </div>
