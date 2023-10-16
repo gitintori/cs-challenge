@@ -1,6 +1,8 @@
 import { useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
+const url = 'https://api.github.com/';
+
 const RepoDetails = () => {
   const { id, repoId } = useParams();
   const [repoDetails, setRepoDetails] = useState({
@@ -14,16 +16,16 @@ const RepoDetails = () => {
 
   useEffect(() => {
     const fetchRepoDetails = async () => {
-      try {
-        const response = await fetch(`https://api.github.com/repos/${id}/${repoId}`);
-        if (!response.ok) {
-          throw new Error(`Erro na requisição: ${response.status}`);
-        }
+      // try {
+        const response = await fetch(`${url}/repos/${id}/${repoId}`);
+        // if (!response.ok) {
+        //   throw new Error(`Erro na requisição: ${response.status}`);
+        // }
         const data = await response.json();
         setRepoDetails(data);
-      } catch (error) {
-        console.error('Erro na requisição:', error);
-      }
+      // } catch (error) {
+      //   console.error('Erro na requisição:', error);
+      // }
     };
 
     fetchRepoDetails();
@@ -32,7 +34,7 @@ const RepoDetails = () => {
 
   return (
     <div>
-      <Link to={`/users/${id}`}>Voltar</Link>
+      <Link to={`${url}/repos/`}>Voltar</Link>
       <h2>Detalhes do Repositório</h2>
       <p>Nome: {repoDetails.name}</p>
       {repoDetails.description ? (
@@ -46,6 +48,7 @@ const RepoDetails = () => {
             ) : (
             <p>Linguagem: Não especificado</p>
             )}
+
       <a href={repoDetails.html_url}> Abrir no Github</a>
     </div>
   );
