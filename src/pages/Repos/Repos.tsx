@@ -27,10 +27,10 @@ type Repository = {
                 reposOrdenados.sort((a, b) => b.stargazers_count - a.stargazers_count);
             }
 
-            console.log('Repos ordenados:', reposOrdenados);
+            console.log(reposOrdenados);
 
             setRepos(reposOrdenados);
-            console.log('Estado repos:', reposOrdenados);
+            console.log(reposOrdenados);
         };
 
         getRepos();

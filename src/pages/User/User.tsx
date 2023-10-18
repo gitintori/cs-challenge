@@ -22,6 +22,7 @@ const User = () => {
             console.log(dados)
             setUserData(dados)
         }
+        
     getUsers()
     }, [id])
 

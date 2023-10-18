@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../pages/Home/Home";
 import User from "../pages/User/User";
-import RepoDetails from '../pages/Repos/RepoDetails'
 import Repos from '../pages/Repos/Repos'
+import RepoDetails from '../pages/Repos/RepoDetails'
 
 const Router = () => (
     <BrowserRouter>

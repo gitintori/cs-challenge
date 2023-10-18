@@ -16,16 +16,9 @@ const RepoDetails = () => {
 
   useEffect(() => {
     const fetchRepoDetails = async () => {
-      // try {
-        const response = await fetch(`${url}/repos/${id}/${repoId}`);
-        // if (!response.ok) {
-        //   throw new Error(`Erro na requisição: ${response.status}`);
-        // }
+        const response = await fetch(`${url}repos/${id}/${repoId}`);
         const data = await response.json();
         setRepoDetails(data);
-      // } catch (error) {
-      //   console.error('Erro na requisição:', error);
-      // }
     };
 
     fetchRepoDetails();
@@ -34,7 +27,7 @@ const RepoDetails = () => {
 
   return (
     <div>
-      <Link to={`${url}/repos/`}>Voltar</Link>
+      <Link to={`/users/${id}/repos`}>Voltar</Link>
       <h2>Detalhes do Repositório</h2>
       <p>Nome: {repoDetails.name}</p>
       {repoDetails.description ? (
