@@ -33,7 +33,7 @@ const RepoDetails = () => {
       {repoDetails.description ? (
             <p>Descrição: {repoDetails.description}</p>
             ) : (
-            <p>Descrição: Não encontrado</p>
+            <p>Descrição: Sem descrição</p>
             )}
       <p>Estrelas: {repoDetails.stargazers_count}</p>
       {repoDetails.language ? (

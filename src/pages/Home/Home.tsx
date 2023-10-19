@@ -7,12 +7,15 @@ const Home = (): JSX.Element => {
 
   return (
     <Container>
+      
       <SearchWrapper>
+        <p>Pesquisar usuário do Github:</p>
         <SearchField 
           type="text" 
-          placeholder="Pesquisar" 
+          placeholder="Nome de usuário" 
           value={searchTerm} 
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
+          autoFocus
         />
         <SearchButton to={`/users/${searchTerm}`}>
           Pesquisar
