@@ -26,32 +26,59 @@ const User = () => {
     getUsers()
     }, [id])
 
+    const [userExists, setUserExists] = useState(true);
+
+    useEffect(() => {
+        const getUsers = async () => {
+            const resposta = await fetch(`${url}users/${id}`);
+            if (resposta.status === 404) {
+                setUserExists(false);
+            } else {
+                const dados = await resposta.json();
+                console.log(dados);
+                setUserData(dados);
+            }
+        }
+    
+        getUsers();
+    }, [id]);
+
     return (
         <Results>
-            <Link to='/'>
-                Voltar
-            </Link>
-            <Avatar src={userData.avatar_url} />
-            <p>User: {id}</p>
-            <p>Followers: {userData.followers}</p>
-            <p>Following: {userData.following}</p>
-            {userData.email ? (
-            <p>E-mail: {userData.email}</p>
+            {userExists ? (
+                <>
+                    <Link to='/'>
+                        Voltar
+                    </Link>
+                    <Avatar src={userData.avatar_url} />
+                    <p>User: {id}</p>
+                    <p>Followers: {userData.followers}</p>
+                    <p>Following: {userData.following}</p>
+                    {userData.email ? (
+                    <p>E-mail: {userData.email}</p>
+                    ) : (
+                    <p>E-mail: Não encontrado</p>
+                    )}
+                    {userData.bio ? (
+                    <p>Bio: {userData.bio}</p>
+                    ) : (
+                    <p>Bio: Não encontrado</p>
+                    )}
+    
+                    <Link to={`/users/${id}/repos`}>
+                        <p>Lista de Repositórios</p>
+                    </Link>
+                </>
             ) : (
-            <p>E-mail: Não encontrado</p>
+                <div>
+                    <p>O usuário não foi encontrado.</p>
+                    <Link to='/'>
+                        Voltar
+                    </Link>
+                </div>
             )}
-            {userData.bio ? (
-            <p>Bio: {userData.bio}</p>
-            ) : (
-            <p>Bio: Não encontrado</p>
-            )}
-            <Link to={`/users/${id}/repos`}>
-                <p>Lista de Repositórios</p>
-            </Link>
-           
         </Results>
-        
-    )
+    );
 }
 
 
