@@ -13,7 +13,7 @@ left: 0;
 right: 0;
 transform: translateY(-50%);
 width: 100%;
-background-color: #808B96;
+background-color: var(--grey);
 height: 300px;
 display: flex;
 gap: 10px;
@@ -28,7 +28,7 @@ font-size: 40px;
     transform: translateX(-50%);
     display: flex;
     justify-content: center;
-    color: var(--white)
+    color: var(--white);
   }
 `;
 
@@ -42,7 +42,7 @@ export const SearchField = styled.input`
   outline: none;
 
     &::placeholder {
-      color: #ABB2B9;
+      color: var(--light-grey);
     }
 `;
 
@@ -55,5 +55,5 @@ export const SearchButton = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--white)
+  background-color: var(--white);
 `;

@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom"
 import { useEffect, useState } from 'react';
-import {Avatar, Results} from './User.styled'
+import {Avatar, Results, UserInfo, UserInfoContainer, LinkRepo, LinkVoltar, LinkWrapper, NotFoundText, UserNotFound} from './User.styled'
 
 const url = 'https://api.github.com/';
 
@@ -33,11 +33,11 @@ const User = () => {
             const resposta = await fetch(`${url}users/${id}`);
             if (resposta.status === 404) {
                 setUserExists(false);
-            } else {
-                const dados = await resposta.json();
-                console.log(dados);
-                setUserData(dados);
-            }
+                } else {
+                    const dados = await resposta.json();
+                    console.log(dados);
+                    setUserData(dados);
+                }
         }
     
         getUsers();
@@ -45,38 +45,50 @@ const User = () => {
 
     return (
         <Results>
+            <UserInfoContainer>
             {userExists ? (
                 <>
-                    <Link to='/'>
-                        Voltar
-                    </Link>
+                    
                     <Avatar src={userData.avatar_url} />
-                    <p>User: {id}</p>
-                    <p>Followers: {userData.followers}</p>
-                    <p>Following: {userData.following}</p>
-                    {userData.email ? (
-                    <p>E-mail: {userData.email}</p>
-                    ) : (
-                    <p>E-mail: Não encontrado</p>
-                    )}
-                    {userData.bio ? (
-                    <p>Bio: {userData.bio}</p>
-                    ) : (
-                    <p>Bio: Não encontrado</p>
-                    )}
-    
-                    <Link to={`/users/${id}/repos`}>
-                        <p>Lista de Repositórios</p>
-                    </Link>
+                    <UserInfo>
+                        <p>Usuário: {id}</p>
+                        <p>Seguidores: {userData.followers}</p>
+                        <p>Seguindo: {userData.following}</p>
+                        {userData.email ? (
+                            <p>E-mail: {userData.email}</p>
+                            ) : (
+                                <NotFoundText>E-mail: Não encontrado </NotFoundText>
+                            )}
+                        {userData.bio ? (
+                            <p>Bio: {userData.bio}</p>
+                            ) : (
+                                <NotFoundText>Bio: Não encontrado </NotFoundText>
+                            )}
+                        <LinkWrapper>
+                            <LinkRepo>  
+                                <Link to={`/users/${id}/repos`}>
+                                    <p>Ver Repositórios</p>
+                                </Link>
+                            </LinkRepo>
+                            <LinkVoltar>
+                                <Link to='/'>
+                                    Voltar
+                                </Link>
+                            </LinkVoltar>
+                        </LinkWrapper>                    
+                    </UserInfo>
                 </>
             ) : (
-                <div>
+                <UserNotFound>
                     <p>O usuário não foi encontrado.</p>
+                    <LinkVoltar>
                     <Link to='/'>
                         Voltar
                     </Link>
-                </div>
+                    </LinkVoltar>
+                </UserNotFound>
             )}
+            </UserInfoContainer>
         </Results>
     );
 }

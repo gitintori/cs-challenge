@@ -12,7 +12,6 @@ const RepoDetails = () => {
     html_url: '',
     language: ''
   });
-  // console.log(repoDetails)
 
   useEffect(() => {
     const fetchRepoDetails = async () => {
@@ -23,7 +22,6 @@ const RepoDetails = () => {
 
     fetchRepoDetails();
   }, [id, repoId]);
-
 
   return (
     <div>

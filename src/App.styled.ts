@@ -2,24 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 `;
-
-export const SearchWrapper = styled.header`
-
-`
-
-export const SearchBar = styled.input`
-
-`
-
-export const SearchButton = styled.button`
-
-`
-
-export const ResultsList = styled.ul`
-
-`
-
-export const Result = styled.li`
-
-`
