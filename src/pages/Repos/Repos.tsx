@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom"
 import { useEffect, useState } from 'react';
-import { Container, ButtonWrapper, RepoWrapper, StarButton, LinkVoltar } from "./Repos.styled";
+import { Container, ButtonWrapper, StarButton, LinkRepo, LinkVoltar } from "./Repos.styled";
 
 const url = 'https://api.github.com/';
 
@@ -47,26 +47,25 @@ const [ordenacao, setOrdenacao] = useState('desc');
             <Container>
                 <p>Repositórios:</p>
                 <ButtonWrapper>
-                    <p>Ordenar:</p>
+                    <p>Ordenar por estrelas:</p>
                     <StarButton>
                         <button onClick={() => handleOrdernar('asc')}>
-                            Ordem ascendente de estrelas
+                            &#9650; &#9733;
                         </button>
                         <button onClick={() => handleOrdernar('desc')}>
-                            Ordem Decrescente de Estrelas
+                            &#9660; &#9733;
                         </button>
                     </StarButton>
                 </ButtonWrapper>
-                <RepoWrapper>
+                <LinkRepo>
                     {repos.map((repo) => (
                         <li key={repo.id}>
                             <Link to={`/users/${id}/repos/${repo.name}`}>
-                               {repo.name} - &#9733; {repo.stargazers_count} (<u>Ver detalhes</u>)
+                              <strong>{repo.name}</strong> - &#9733; {repo.stargazers_count} (<u>Ver detalhes</u>)
                             </Link>
                         </li>
                     ))}
-                    
-                </RepoWrapper>
+                </LinkRepo>
                 <LinkVoltar>
                     <Link to={`/users/${id}`}>
                         <p>Voltar</p>

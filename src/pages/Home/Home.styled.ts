@@ -7,29 +7,29 @@ export const Container = styled.div`
 `;
 
 export const SearchWrapper = styled.header`
-position: fixed;
-top: 50%;
-left: 0;
-right: 0;
-transform: translateY(-50%);
-width: 100%;
-background-color: var(--grey);
-height: 300px;
-display: flex;
-gap: 10px;
-align-items: center;
-justify-content: center;
-font-size: 40px;
-  
-  p {
-    position: absolute;
-    top: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    color: var(--white);
-  }
+  position: fixed;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  background-color: var(--grey);
+  height: 300px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+    
+    p {
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: center;
+      color: var(--white);
+    }
 `;
 
 export const SearchField = styled.input`

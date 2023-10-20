@@ -1,4 +1,4 @@
-import { Container, SearchButton, SearchField, SearchWrapper } from './Home.styled'
+import { Container, SearchWrapper, SearchField, SearchButton } from './Home.styled'
 import React from "react"
 
 const Home = (): JSX.Element => {

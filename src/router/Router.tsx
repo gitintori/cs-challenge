@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../pages/Home/Home";
 import User from "../pages/User/User";
 import Repos from '../pages/Repos/Repos'
-import RepoDetails from '../pages/Repos/RepoDetails'
+import RepoDetails from '../pages/RepoDetails/RepoDetails'
 
 const Router = () => (
     <BrowserRouter>
@@ -28,9 +28,9 @@ const Router = () => (
         />
         
         <Route
-                path="*"
-                element={<p>Não foi possível concluir sua busca, tente novamente</p>}
-            />
+            path="*"
+            element={<p>Não foi possível concluir sua busca, tente novamente</p>}
+        />
 
 
         </Routes>

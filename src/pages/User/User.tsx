@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom"
 import { useEffect, useState } from 'react';
-import {Avatar, Results, UserInfo, UserInfoContainer, LinkRepo, LinkVoltar, LinkWrapper, NotFoundText, UserNotFound} from './User.styled'
+import { Results, UserInfoContainer, Avatar,  UserInfo, NotFoundText, LinkWrapper, LinkRepo, LinkText, LinkVoltar, UserNotFound } from './User.styled'
 
 const url = 'https://api.github.com/';
 
@@ -48,7 +48,6 @@ const User = () => {
             <UserInfoContainer>
             {userExists ? (
                 <>
-                    
                     <Avatar src={userData.avatar_url} />
                     <UserInfo>
                         <p>Usuário: {id}</p>
@@ -67,20 +66,22 @@ const User = () => {
                         <LinkWrapper>
                             <LinkRepo>  
                                 <Link to={`/users/${id}/repos`}>
-                                    <p>Ver Repositórios</p>
+                                    <LinkText>Ver Repositórios</LinkText>
                                 </Link>
                             </LinkRepo>
+                             
                             <LinkVoltar>
                                 <Link to='/'>
                                     Voltar
                                 </Link>
                             </LinkVoltar>
-                        </LinkWrapper>                    
+                        </LinkWrapper>
+                                     
                     </UserInfo>
                 </>
             ) : (
                 <UserNotFound>
-                    <p>O usuário não foi encontrado.</p>
+                    <LinkText>O usuário não foi encontrado.</LinkText>
                     <LinkVoltar>
                     <Link to='/'>
                         Voltar
