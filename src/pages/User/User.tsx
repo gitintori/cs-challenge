@@ -81,7 +81,7 @@ const User = () => {
                 </>
             ) : (
                 <UserNotFound>
-                    <LinkText>O usuário não foi encontrado.</LinkText>
+                    O usuário não foi encontrado.
                     <LinkVoltar>
                     <Link to='/'>
                         Voltar

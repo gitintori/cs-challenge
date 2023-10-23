@@ -38,7 +38,7 @@ const [ordenacao, setOrdenacao] = useState('desc');
         getRepos();
     }, [id, ordenacao]);
 
-    const handleOrdernar = (ordem: 'asc' | 'desc') => {
+    const handleOrdenar = (ordem: 'asc' | 'desc') => {
         setOrdenacao(ordem);
     };
 
@@ -49,10 +49,10 @@ const [ordenacao, setOrdenacao] = useState('desc');
                 <ButtonWrapper>
                     <p>Ordenar por estrelas:</p>
                     <StarButton>
-                        <button onClick={() => handleOrdernar('asc')}>
+                        <button onClick={() => handleOrdenar('asc')}>
                             &#9650; &#9733;
                         </button>
-                        <button onClick={() => handleOrdernar('desc')}>
+                        <button onClick={() => handleOrdenar('desc')}>
                             &#9660; &#9733;
                         </button>
                     </StarButton>
@@ -60,8 +60,9 @@ const [ordenacao, setOrdenacao] = useState('desc');
                 <LinkRepo>
                     {repos.map((repo) => (
                         <li key={repo.id}>
+                            <strong>{repo.name}  - &#9733; {repo.stargazers_count} </strong>
                             <Link to={`/users/${id}/repos/${repo.name}`}>
-                              <strong>{repo.name}</strong> - &#9733; {repo.stargazers_count} (<u>Ver detalhes</u>)
+                              (<u>Ver detalhes</u>)
                             </Link>
                         </li>
                     ))}

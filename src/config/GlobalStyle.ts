@@ -15,12 +15,14 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     border: none;
     font-family: 'Roboto', sans-serif;
-      a {
+     
+  }
+
+ a {
         text-decoration: none; 
         color: inherit;
     }
-  }
-
+    
   body {
     background-color: var(--white);
   }
