@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Results = styled.ul`
@@ -46,33 +47,20 @@ export const LinkWrapper = styled.div`
     gap: 20px;
 `;
 
-export const LinkRepo = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--blue);
-    color: var(--white);
-    font-weight: bold;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    height: 60px;
-    width: 220px;
-`;
-
-export const LinkText = styled.p`
-    text-align: center;
-    margin: 0;
-`;
-
-export const LinkVoltar = styled.div`
+export const DefaultLink = styled(Link)`
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: var(--light-grey);
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    height: 60px;
-    width: 120px;    
+    padding: 1rem;
+`;
+
+export const LinkRepo = styled(DefaultLink)`
+    background-color: var(--blue);
+    color: var(--white);
+    font-weight: bold;
 `;
 
 export const UserNotFound = styled.div`

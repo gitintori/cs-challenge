@@ -1,6 +1,6 @@
-import { useParams, Link } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { useEffect, useState } from 'react';
-import { Container, ButtonWrapper, StarButton, LinkRepo, LinkVoltar } from "./Repos.styled";
+import { Container, ButtonWrapper, OrderButton, ListRepo, LinkRepoDetails, DefaultLink } from "./Repos.styled";
 
 const url = 'https://api.github.com/';
 
@@ -29,10 +29,7 @@ const [ordenacao, setOrdenacao] = useState('desc');
                     reposOrdenados.sort((a, b) => b.stargazers_count - a.stargazers_count);
                 }
 
-            console.log(reposOrdenados);
-
             setRepos(reposOrdenados);
-            console.log(reposOrdenados);
         };
 
         getRepos();
@@ -48,30 +45,29 @@ const [ordenacao, setOrdenacao] = useState('desc');
                 <p>Repositórios:</p>
                 <ButtonWrapper>
                     <p>Ordenar por estrelas:</p>
-                    <StarButton>
+                    <OrderButton>
                         <button onClick={() => handleOrdenar('asc')}>
                             &#9650; &#9733;
                         </button>
                         <button onClick={() => handleOrdenar('desc')}>
                             &#9660; &#9733;
                         </button>
-                    </StarButton>
+                    </OrderButton>
                 </ButtonWrapper>
-                <LinkRepo>
+                <ListRepo>
                     {repos.map((repo) => (
                         <li key={repo.id}>
                             <strong>{repo.name}  - &#9733; {repo.stargazers_count} </strong>
-                            <Link to={`/users/${id}/repos/${repo.name}`}>
-                              (<u>Ver detalhes</u>)
-                            </Link>
+                            <LinkRepoDetails to={`/users/${id}/repos/${repo.name}`}>
+                              (Ver detalhes)
+                            </LinkRepoDetails>
                         </li>
                     ))}
-                </LinkRepo>
-                <LinkVoltar>
-                    <Link to={`/users/${id}`}>
-                        <p>Voltar</p>
-                    </Link>
-                </LinkVoltar>
+                    <DefaultLink to={`/users/${id}`}>
+                            Voltar
+                    </DefaultLink>
+                </ListRepo>
+                
             </Container>
 
     )

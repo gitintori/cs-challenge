@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -21,7 +22,7 @@ export const ButtonWrapper = styled.div`
     gap: 10px;
 `;
 
-export const StarButton = styled.div`
+export const OrderButton = styled.div`
     display: flex;
     flex-direction: center;
     gap: 10px;
@@ -36,12 +37,16 @@ export const StarButton = styled.div`
     }
 `;
 
-export const LinkRepo = styled.div`
+export const ListRepo = styled.ul`
     display: flex;
     flex-direction: column;
     font-size: 20px;
     gap: 10px;
     list-style: none;
+`;
+
+export const LinkRepoDetails = styled(Link)`
+   text-decoration: underline;
 `;
 
 export const LinkVoltar = styled.div`
@@ -56,3 +61,12 @@ export const LinkVoltar = styled.div`
     padding: 20px;
     font-size: 20px;
 `;
+export const DefaultLink = styled(Link)`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light-grey);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 0.5rem;
+`

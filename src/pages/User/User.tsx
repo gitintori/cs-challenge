@@ -1,6 +1,6 @@
-import { useParams, Link } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { useEffect, useState } from 'react';
-import { Results, UserInfoContainer, Avatar,  UserInfo, NotFoundText, LinkWrapper, LinkRepo, LinkText, LinkVoltar, UserNotFound } from './User.styled'
+import { Results, UserInfoContainer, Avatar,  UserInfo, NotFoundText, LinkWrapper, LinkRepo, DefaultLink, UserNotFound } from './User.styled'
 
 const url = 'https://api.github.com/';
 
@@ -15,17 +15,6 @@ const User = () => {
         bio: '',
       })
 
-    useEffect(() => {
-        const getUsers = async () => {
-            const resposta = await fetch(`${url}users/${id}`)
-            const dados = await resposta.json()
-            console.log(dados)
-            setUserData(dados)
-        }
-        
-    getUsers()
-    }, [id])
-
     const [userExists, setUserExists] = useState(true);
 
     useEffect(() => {
@@ -35,14 +24,13 @@ const User = () => {
                 setUserExists(false);
                 } else {
                     const dados = await resposta.json();
-                    console.log(dados);
                     setUserData(dados);
                 }
         }
     
         getUsers();
     }, [id]);
-
+     
     return (
         <Results>
             <UserInfoContainer>
@@ -64,29 +52,22 @@ const User = () => {
                                 <NotFoundText>Bio: Não encontrado </NotFoundText>
                             )}
                         <LinkWrapper>
-                            <LinkRepo>  
-                                <Link to={`/users/${id}/repos`}>
-                                    <LinkText>Ver Repositórios</LinkText>
-                                </Link>
+                            <LinkRepo to={`/users/${id}/repos`}>
+                                  Ver Repositórios
                             </LinkRepo>
                              
-                            <LinkVoltar>
-                                <Link to='/'>
+                            <DefaultLink to='/'>
                                     Voltar
-                                </Link>
-                            </LinkVoltar>
+                            </DefaultLink>
                         </LinkWrapper>
-                                     
                     </UserInfo>
                 </>
             ) : (
                 <UserNotFound>
                     O usuário não foi encontrado.
-                    <LinkVoltar>
-                    <Link to='/'>
+                    <DefaultLink to='/'>
                         Voltar
-                    </Link>
-                    </LinkVoltar>
+                    </DefaultLink>
                 </UserNotFound>
             )}
             </UserInfoContainer>
