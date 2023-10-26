@@ -30,7 +30,7 @@ Você precisa ter [NPM](https://nodejs.org/en/) instalado para rodar essa aplica
 #### Instale dependências
 
 ```
- npm create vite@latest my-vue-app -- --template react
+ npm create vite@latest my-react-app -- --template react
 ```
 
 #### Para rodar!
@@ -41,7 +41,7 @@ Você precisa ter [NPM](https://nodejs.org/en/) instalado para rodar essa aplica
 
 ## Estrutura do projeto
 
-Na pasta ```src``` estão as pastas de ```pages```, onde estão os arquivos de funcionalidades nos documentos tsx e estilos das páginas com Styled-Components nos documentos ts, a ```router``` onde foi configurado as rotas do projeto e o arquivo ```App.tsx```, onde está a aplicação principal.
+Na pasta ```src``` estão as pastas de ```pages```, onde estão os arquivos de funcionalidades da aplicação (documentos .tsx) e estilos das páginas com Styled-Components nos documentos ts, a pasta ```router``` onde foi configurado as rotas do projeto e o arquivo ```App.tsx```, onde está a aplicação principal.
 
 ## Melhorias futuras
 
