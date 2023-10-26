@@ -1,28 +1,6 @@
 {
-    "routes": [
-        {
-            "src":"/",
-            "dest": "/" 
-        },
-        {
-            "src": "/users/:id",
-            "dest": "/"
-        },
-        {
-            "src": "/users/:id/repos",
-            "dest": "/"
-        },
-        {
-            "src": "/users/:id/repos/:repoId",
-            "dest": "/"
-        },
-        {
-            "src": "/users/:id/repos/:repoId",
-            "dest": "/"
-        },
-        {
-            "src":"*",
-            "dest":"<p>Não foi possível concluir sua busca, tente novamente</p>"
-        }
+    "rewrites": [
+      { "source": "/(.*)", "destination": "/index.html" }
     ]
-}
+  }
+  
