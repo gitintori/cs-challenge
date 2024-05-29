@@ -26,28 +26,28 @@ const RepoDetails = () => {
 
   return (
     <Container>
-      <p>Detalhes do Repositório</p>
+      <p>Repository Details</p>
       <RepoWrapper>
-        <p><strong>Nome:</strong> {repoDetails.name}</p>
+        <p><strong>Name:</strong> {repoDetails.name}</p>
         {repoDetails.description ? (
-              <p><strong>Descrição:</strong> {repoDetails.description}</p>
+              <p><strong>Description:</strong> {repoDetails.description}</p>
               ) : (
-                <p><strong>Descrição:</strong> Sem descrição</p>
+                <p><strong>Description:</strong> No description</p>
                 )}
         {repoDetails.language ? (
-              <p><strong>Linguagem:</strong> {repoDetails.language}</p>
+              <p><strong>Language:</strong> {repoDetails.language}</p>
               ) : (
-                <p><strong>Linguagem:</strong> Não especificado</p>
+                <p><strong>Language:</strong> Not specified</p>
                 )}
         <p>&#9733;: {repoDetails.stargazers_count}</p>
       </RepoWrapper>
       <LinkWrapper>
         <LinkGithub>
-          <a href={repoDetails.html_url}> Abrir no Github</a>
+          <a href={repoDetails.html_url}> Open on Github</a>
         </LinkGithub>
         <LinkVoltar>
           <Link to={`/users/${id}/repos`}>
-            Voltar
+            Back
           </Link>
         </LinkVoltar>
       </LinkWrapper>

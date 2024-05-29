@@ -42,9 +42,9 @@ const [ordenacao, setOrdenacao] = useState('desc');
     return (
 
             <Container>
-                <p>Repositórios:</p>
+                <p>Repositories:</p>
                 <ButtonWrapper>
-                    <p>Ordenar por estrelas:</p>
+                    <p>Sort by stars:</p>
                     <OrderButton>
                         <button onClick={() => handleOrdenar('asc')}>
                             &#9650; &#9733;
@@ -59,12 +59,12 @@ const [ordenacao, setOrdenacao] = useState('desc');
                         <li key={repo.id}>
                             <strong>{repo.name}  - &#9733; {repo.stargazers_count} </strong>
                             <LinkRepoDetails to={`/users/${id}/repos/${repo.name}`}>
-                              (Ver detalhes)
+                              (See details)
                             </LinkRepoDetails>
                         </li>
                     ))}
                     <DefaultLink to={`/users/${id}`}>
-                            Voltar
+                            Back
                     </DefaultLink>
                 </ListRepo>
                 

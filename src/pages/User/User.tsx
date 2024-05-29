@@ -38,35 +38,35 @@ const User = () => {
                 <>
                     <Avatar src={userData.avatar_url} />
                     <UserInfo>
-                        <p>Usuário: {id}</p>
-                        <p>Seguidores: {userData.followers}</p>
-                        <p>Seguindo: {userData.following}</p>
+                        <p>User: {id}</p>
+                        <p>Followers: {userData.followers}</p>
+                        <p>Following: {userData.following}</p>
                         {userData.email ? (
                             <p>E-mail: {userData.email}</p>
                             ) : (
-                                <NotFoundText>E-mail: Não encontrado </NotFoundText>
+                                <NotFoundText>E-mail: not found </NotFoundText>
                             )}
                         {userData.bio ? (
                             <p>Bio: {userData.bio}</p>
                             ) : (
-                                <NotFoundText>Bio: Não encontrado </NotFoundText>
+                                <NotFoundText>Bio: not found </NotFoundText>
                             )}
                         <LinkWrapper>
                             <LinkRepo to={`/users/${id}/repos`}>
-                                  Ver Repositórios
+                                  See repositories
                             </LinkRepo>
                              
                             <DefaultLink to='/'>
-                                    Voltar
+                                    Back
                             </DefaultLink>
                         </LinkWrapper>
                     </UserInfo>
                 </>
             ) : (
                 <UserNotFound>
-                    O usuário não foi encontrado.
+                    User not found.
                     <DefaultLink to='/'>
-                        Voltar
+                        Back
                     </DefaultLink>
                 </UserNotFound>
             )}

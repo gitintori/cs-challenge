@@ -21,10 +21,10 @@ const Home = (): JSX.Element => {
     <Container>
       
       <SearchWrapper>
-        <p>Pesquisar usuário do Github:</p>
+        <p>Search Github user:</p>
         <SearchField 
           type="text" 
-          placeholder="Nome de usuário" 
+          placeholder="User name" 
           value={searchTerm} 
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
           autoFocus
@@ -33,7 +33,7 @@ const Home = (): JSX.Element => {
         <SearchButton 
           to={`/users/${searchTerm}`}
           onClick={navigateToUserPage}>
-            Pesquisar
+            Search
         </SearchButton>
       </SearchWrapper>
     </Container>
